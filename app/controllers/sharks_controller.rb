@@ -18,6 +18,7 @@ class SharksController < ApplicationController
 
   # GET /sharks/1/edit
   def edit
+
   end
 
   # POST /sharks or /sharks.json
@@ -25,24 +26,25 @@ class SharksController < ApplicationController
     @shark = Shark.new(shark_params)
 
     respond_to do |format|
+      # binding.pry
       if @shark.save
         format.html { redirect_to @shark, notice: "Shark was successfully created." }
         # format.json { render :show, status: :created, location: @shark }
         format.js
       else
-        binding.pry
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @shark.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /sharks/1 or /sharks/1.json
+  # PATCH/PUT /sharks/1 or /sharks/1.jso
   def update
     respond_to do |format|
       if @shark.update(shark_params)
         format.html { redirect_to @shark, notice: "Shark was successfully updated." }
         format.json { render :show, status: :ok, location: @shark }
+        format.js
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @shark.errors, status: :unprocessable_entity }

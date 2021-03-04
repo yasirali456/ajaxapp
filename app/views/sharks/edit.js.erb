@@ -1,0 +1,3 @@
+$('#form-edit').html('<%= j(render(partial: "sharks/form", locals: { shark: @shark}))%>')
+$('#name_field').val("<%= @shark.name %>")
+$('#fact_field').val("<%= @shark.facts %>")

@@ -1,0 +1,27 @@
+<h1>student</h1>
+<div id=form_edit>
+
+<%= render 'form', student: @student %><br>
+</div>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>s name</th>
+        <th>Fname</th>
+        <th>show</th>
+        <th>edit</th>
+        <th>destroy</th>
+      </tr>
+    </thead>
+  <tbody id="create_id">
+  	<%# binding.pry %>
+  	  <% @students.each do |student| %>
+
+      <%= render 'tablesqqq', student: student %>
+     
+      <% end %>
+  <!-- </tbody> -->
+</table>
+

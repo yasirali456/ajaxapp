@@ -1,0 +1,9 @@
+<tr class="iqbal<%= student.id %>">
+    <td><%= student.id %></td>
+    <td><%= student.name %></td>
+    <td><%= student.f_name %></td>
+    <td><%= link_to 'Show', student %></td>
+    <td><%= link_to 'Edit', edit_student_path(student), remote: :true %></td>
+    <td><%= link_to 'Destroy', student, method: :delete, remote: :true %></td>
+  </tr>
+  <!-- class="yasir-<%#= student.id %> " -->

@@ -1,0 +1,3 @@
+$('.iqbal<%=@student.id %>').html('<%= j(render(partial: "students/update_row", locals: { student: @student })) %>')
+$('#name_field').val("")
+$('#fname_field').val("")

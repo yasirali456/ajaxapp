@@ -1,2 +1,3 @@
-<%# binding.pry %>
-$('.yasir-<%=@shark.id %>').append("<%= j render @shark %>");
+$('#tbl_id').append('<%= j(render(partial: "sharks/tables", locals: { shark: @shark }))%>')
+$('#name_field').val("")
+$('#fact_field').val("")

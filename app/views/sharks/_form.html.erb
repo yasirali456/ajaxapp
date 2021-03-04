@@ -1,27 +1,64 @@
-<%= form_for( :shark, :remote => true) do |form| %>
-  <% if shark.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(shark.errors.count, "error") %> prohibited this shark from being saved:</h2>
+<% if shark&.id.present? %>
+  <%# binding.pry %>
+  <%= form_for( @shark, remote: true) do |form| %>
 
-      <ul>
-        <% shark.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <% if shark.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(shark.errors.count, "error") %> prohibited this shark from being saved:</h2>
+
+        <ul>
+          <% shark.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name ,id: "name_field"%>
+    </div>
+
+    <div class="field">
+      <%= form.label :facts %>
+      <%= form.text_area :facts ,id: "fact_field" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+
     </div>
   <% end %>
+<% else %>
+  <%= form_for( :shark, remote: true) do |form| %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <% if shark.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(shark.errors.count, "error") %> prohibited this shark from being saved:</h2>
 
-  <div class="field">
-    <%= form.label :facts %>
-    <%= form.text_area :facts %>
-  </div>
+        <ul>
+          <% shark.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name ,id: "name_field"%>
+    </div>
+
+    <div class="field">
+      <%= form.label :facts %>
+      <%= form.text_area :facts ,id: "fact_field" %>
+    </div>
+
+    <div class="action">
+      <%= form.submit class: "btn btn-primary btn-sm"  %>
+
+
+    </div>
+  <% end %>
 <% end %>
+

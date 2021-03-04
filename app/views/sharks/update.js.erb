@@ -1,0 +1,4 @@
+<%# binding.pry %>
+$('.yasir-<%=@shark.id %>').html('<%= j(render(partial: "sharks/update_row", locals: { shark: @shark }))%>')
+$('#name_field').val("")
+$('#fact_field').val("")
